@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Histogram from 'react-chart-histogram';
+import LoadingScreen from 'react-loading-screen';
 
 
 class App extends Component {
@@ -13,7 +14,6 @@ class App extends Component {
 
   componentDidMount(){
     fetch("https://api.exchangerate.host/latest")
-    // fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -28,7 +28,18 @@ class App extends Component {
     
 
     if(!isLoaded){
-      return <div>Loading...</div>
+
+      return <LoadingScreen
+        loading={true}
+        bgColor='#f1f1f1'
+        spinnerColor='#9ee5f8'
+        textColor='#676767'
+        logoSrc='/logo.png'
+        text='Loading Data'
+      > 
+        <div>Loading...</div>
+      </LoadingScreen>
+       
     }else{
       let labels = [];
       let data = [];

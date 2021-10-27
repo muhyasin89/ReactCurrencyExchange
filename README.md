@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with React Currency Exchange
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project you can see currency exchange, the API is from [https://api.exchangerate.host/latest](exchangerate.host) the purpose is, the react will get the api and show it in histogram chart, after that the react will send to backend which is using flask to record it daily.
 
 ## Available Scripts
 
@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### To Open Cypress 
+
+run `yarn cypress open` if you forgot check the `package.json` in script you will see the comment
