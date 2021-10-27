@@ -1,5 +1,5 @@
-// import APIConsumer from "./Data";
 import { Component } from "react";
+import Histogram from 'react-chart-histogram';
 
 
 class App extends Component {
@@ -30,15 +30,29 @@ class App extends Component {
     if(!isLoaded){
       return <div>Loading...</div>
     }else{
-      const results = Object.entries(items.rates).map(el => ({"key":[el[0]], "value": el[1]}))
+      let labels = [];
+      let data = [];
+      let results = [];
+      const options = { fillColor: '#FFFFFF', strokeColor: '#0000FF' };
+
+      Object.entries(items.rates).map(el => {
+        results.push({"key":[el[0]], "value": el[1]})
+        labels.push([el[0]].toString())
+        data.push(el[1])
+      });
     
     // console.log(results);
       return(
         <div className="App">
+          <h1 align="center">Histogram Chart</h1>
           <header className="App-header">
-              <ul>
-                {results.map(item => <li key={item["key"]}> {item["key"]} : {item["value"]} </li>)}
-              </ul>
+               <Histogram
+                xLabels={labels}
+                yValues={data}
+                width='2500'
+                height='800'
+                options={options}
+            />
           </header>
         </div>
       );
